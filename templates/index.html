@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ff4162;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            padding-top: 180px;
+            font-family: 'Rubik', sans-serif;
+        }
+        h3 {
+            color: white;
+            text-align: center;
+            font-family: 'Rubik', sans-serif;
+        }
+        #btn2 {
+            margin-left: 10px;
+        }
+        .logo img {
+            height: 15vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="{{ url_for('static', filename = 'images/logo.png') }}" alt="logo">
+    </div>
+    <h1>News. Made Fun and Exciting. </h1>
+    <h3>News picked to suit your tastes, by our algorithm.</h3>
+    <div class="buttons">
+        <center>
+        <a class="btn btn-light" style="color: black;" href="{{url_for('signup')}}" role="button">Signup</a>
+        <a class="btn btn-light" style="color: black;" href="{{url_for('login')}}" role="button">Login</a>
+        </center>
+    </div>
+</body>
+</html>

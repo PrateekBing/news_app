@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box ;
+        }
+        body {
+            background-color: #e0e0e0;
+        }
+        .jumbotron h1 {
+            font-family: 'Rubik', sans-serif;
+        }
+        .jumbotron {
+            background-color: #ff4162;
+            color: #ffffff;
+            border-radius: 0%;
+        }
+        .card {
+            display: inline-block;
+            padding: 30px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .logout {
+            float: right;
+        }
+        .logout a {
+            color: #ffffff;
+        }
+        .card a {
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    <div class="jumbotron">
+        <div class="logout">
+            <a class="btn btn-light" style="color: black;" href="{{url_for('logout')}}" role="button">Logout</a>
+        </div>
+        <h1>Hey, {{name}}!</h1>
+        <h5>News picked specifically for you by our algorithm.</h5>
+    </div>
+    </header>
+
+    {% for new, des, i, u in context %}
+
+    <div class="card" style="width: 18rem;">
+        
+        <img class="card-img-top" src="{{i}}" alt="image">
+        <div class="card-body">
+            <a href="{{u}}" target="_blank"><h5 class="card-title">{{new}}</h5></a>
+          <p class="card-text">{{des}}</p>
+          
+        </div>
+    </div>
+
+    {% endfor %}
+
+</body>
+</html>
