@@ -108,7 +108,7 @@ def logout():
     logout_user()
     return redirect('login')
 
-@app.route('/delete', methods=['POST'])
+@app.route('/delete', methods=['POST', 'GET'])
 @login_required
 def delete():
     current_user.delete()
