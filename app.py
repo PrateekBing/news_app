@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField
@@ -22,8 +22,8 @@ login_manager.login_view = 'login'
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(15), unique=False)
-    email = db.Column(db.String(50), unique=True)
+    username = db.Column(db.String(15))
+    email = db.Column(db.String(50))
     password = db.Column(db.String(80))
 
 @login_manager.user_loader
@@ -111,8 +111,12 @@ def logout():
 @app.route('/delete', methods=['POST', 'GET'])
 @login_required
 def delete():
-    current_user.delete()
-    return redirect('login')
+    user = current_user
+    db.session.delete(user)
+    db.session.commit()
+
+    flash('Your account has been successfully deleted.', 'success')
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)
