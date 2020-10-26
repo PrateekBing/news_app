@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ff4162;
+            font-family: 'Rubik', sans-serif;
+        }
+        .profile {
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 200px;
+            margin-left: 500px;
+            margin-right: 500px;
+            padding: 30px;
+        }
+        h6 {
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <center>
+        <h2>Your Profile</h2>
+        
+        <h6>Username: {{name}}</h6>
+        <a class="btn btn-primary" style="color: #ffffff;" href="{{url_for('logout')}}" role="button">Logout</a><br><br>
+        <a class="btn btn-primary" style="color: #ffffff;" href="{{url_for('delete')}}" role="button">Delete Account</a>
+    </center>
+    </div>
+</body>
+</html>

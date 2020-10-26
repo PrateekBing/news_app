@@ -36,18 +36,19 @@
         .card a {
             color: black;
         }
+        .profile a {
+            float: right;
+            text-align: center;
+        }
 
     </style>
 </head>
 <body>
     <header>
-    <div class="jumbotron">
-        <form action="{{url_for('delete')}}" method="POST">
-            <input type="submit" id="delete" name="delete" value="Delete" class="btn btn-light">
-        </form>
-        <div class="logout">
-            <a class="btn btn-light" style="color: black;" href="{{url_for('logout')}}" role="button">Logout</a>
-        </div>
+    <div class="jumbotron">  
+        <div class="profile">
+            <a href="/profile" class="btn btn-light">Go to profile</a>
+        </div>   
         <h1>Hey, {{name}}!</h1>
         <h5>News picked specifically for you by our algorithm.</h5>
     </div>

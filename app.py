@@ -118,5 +118,12 @@ def delete():
     flash('Your account has been successfully deleted.', 'success')
     return redirect(url_for('home'))
 
+@app.route('/profile')
+@login_required
+def profile():
+    name = current_user.username
+    mail = current_user.email
+    return render_template('profile.html', name=name)
+
 if __name__ == '__main__':
     app.run(debug=True)
